@@ -1,4 +1,5 @@
-#Explications du Fonctionnement du Projet
+
+### Explications du Fonctionnement du Projet
 
 ## Répartition des Modules:
 
