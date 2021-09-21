@@ -1,0 +1,52 @@
+I / DEFINITION & UTILITE :
+
+Pour résoudre les problèmes aux limites, on peut introduire un élément particulier qui va permettre de
+transformer toute opération en cas général.
+
+La définition de cet élément est possible (voire recommandée pour toute structure de données).
+
+Dans le cas des listes doublement chaînées, la sentinelle est un élément particulier avec les propriétés suivantes:
+    1) L'élément stocké par le noeud est arbitraire.
+
+    2) L'élément suivant correspond à la tête de liste.
+
+    3) L'élément précédent correspond à la queue de liste.
+
+    4) La sentinelle est créée avec la liste et a la même durée de vie.
+
+    5) L'élément précédant la tête de liste est la sentinelle.
+    
+    6) L'élément suivant la queue de liste est la sentinelle.
+
+On obtient donc :
+
+            AVANT :                           APRES :
+    
+    typedef struct s_list {            typedef struct s_list{
+        Element head;                      Element sentinel;
+        Element tail;                      int size;
+        int size;                      }*List;
+    }*List;
+    
+    
+Par exemple l'ancienne fonction insert_at() (Voir deque.c) devient :
+
+        List insert_at(List l, int step, int value){
+            //Vérifier position//
+            assert((step >= 0) && (step <= l->size));
+            //Créer l'élément//
+            Element elem = (Element) malloc(sizeof(Element));
+            elem->item = value;
+            //Se positionner au bon endroit//
+            Element iElem = (l->sentinel)->next;
+            for (int i=0; i<step; i++){
+                iElem = iElem->next;
+            }
+            //Insérer iElem//
+            elem->next = iElem;
+            elem->previous = iElem->previous;
+            elem->next->previous = elem;
+            elem->previous->next = elem;
+            l->size ++;
+            return l;
+        }
