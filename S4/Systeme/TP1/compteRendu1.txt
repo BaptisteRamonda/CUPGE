@@ -1,0 +1,57 @@
+Exercice 1:
+1) ls users/linfg/linfg0/S3 *.txt*
+2) echo 'Le renard dit "Oh, Monsieur du Corbeau"'
+   echo "J'ai gagne \$100 a l'Alcazar"
+   echo 'Commentaire : \* Initialisation *\'
+
+Exercice 2:
+1) pwd
+2) mkdir -p REP/SOUSREP
+3) cp users/linfg/linfg0/S3/liste.txt SOUSREP/liste.txt
+4) cd SOUSREP
+   ls
+5) mv liste.txt ..
+6) rmdir SOUSREP
+   rm liste.txt
+   cd ..
+   rmdir REP
+
+Exercice 3:
+1) cp users/linfg/linfg0/S3/liste.txt liste.txt
+2) more liste.txt
+3) ls -l
+4) chmod a-w liste.txt
+5) ls -l
+6) ./liste.txt
+7) chmod a+w liste.txt
+8) ./liste.txt
+
+Exercice 4:
+1) Affiche les 5 dernieres lignes du fichier
+2) Affiche la fin du fichier à partir de la 5eme ligne
+3) Affiche les 5 premieres lignes du fichier
+4) Affiche les dix premieres lignees du fichier
+
+Exercice 5:
+1) grep '[0-9]$' liste.txt > temp1.txt
+   sort -k 3 temp1.txt > temp.txt
+   grep '[0-9][0-9]$' liste.txt > temp1.txt
+   sort -k 3 temp1.txt >> temp.txt
+   grep '[0-9][0-9][0-9]$' liste.txt > temp1.txt
+   sort -k 3 temp1.txt >> temp.txt
+   rm temp1.txt
+   cat temp.txt
+   rm temp.txt
+2) sort -k 2 liste.txt > listeAlphabetique.txt
+
+Exercice 6:
+1) grep LAURENT liste.txt
+2) grep -v '[0-9][0-9][0-9]' liste.txt
+3) grep 1 liste.txt
+
+Exercice 7:
+1) echo "Est-ce que j'arrive" > tdm01.txt ; echo "a rediriger la" >> tdm01.txt ; echo "la sortie standard" >> tdm01.txt
+2) Affiche le contenu du fichier liste.txt
+   Ecrit le contenu du fichier liste.txt dans le fichier liste2.txt
+   Supprime le fichier liste2.txt
+   Affiche les 5 dernieres lignes du fichier liste.txt
