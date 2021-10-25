@@ -5,11 +5,13 @@ import file.FileArrayList;
 import java.io.File;
 
 public class FileCirculaire implements IFileBornee {
-    //Constructeurs
+    //Variables
     protected int tail;
     protected int head;
     protected int taille;
     protected double queue[];
+    
+    //Constucteur
     public FileCirculaire(int tailleMax){
         this.tail =0;
         this.head =0;
@@ -17,6 +19,7 @@ public class FileCirculaire implements IFileBornee {
         this.queue=new double[tailleMax];
     }
   
+    //Méthodes
     public boolean add(double e) {
         if (this.capacity()>this.taille){
             this.queue[this.tail]=e;
